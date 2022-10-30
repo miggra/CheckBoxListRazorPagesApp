@@ -1,0 +1,40 @@
+﻿@page
+@model CheckBoxListRazorPagesApp.Pages.MessagesListModel
+
+@{
+    ViewData["Title"] = "MessagesList";
+}
+
+<h1>MessagesList</h1>
+<p>Select messages to delete! </p>
+<form method="post">
+    <p>
+        <button type="submit">Ok</button>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                
+                </th>
+                <th>
+                    Incomming Lorem Messages
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Messages) {
+            <tr>
+                <td>
+                    <input name="CheckedMessagesIds" type="checkbox" value="@item.Id" />
+                </td>
+                <td>
+                    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p>@Html.DisplayFor(modelItem => item.Body)</p>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</form>
